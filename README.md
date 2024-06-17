@@ -1,1 +1,1 @@
-> Сайт: https://villagemc.github.io/form/
+Сайт: https://villagemc.github.io/form/
