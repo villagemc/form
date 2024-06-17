@@ -1,0 +1,154 @@
+/* Подключение шрифтов */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* Отключение некоторых дефолтных стилей */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Задаем шрифт для всей страницы */
+body {
+  font-family: 'Inter', 'Courier New', 'Courier', sans-serif;
+  font-style: normal;
+
+  /* Только для удобства просмотра */
+  background-color: #101010;
+  min-width: 100dvw;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Стилизуем карточку */
+.card {
+  max-width: 743px;
+  width: 100%;
+  padding: 12px 18px 15px 22px;
+  border-radius: 10px;
+  background-color: #3579F5;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (width <= 712px) {
+  .card {
+    padding: 12px 18px 15px;
+    flex-wrap: wrap;
+  }
+}
+
+.card__wrapper {
+  --size: 60px;
+  position: relative;
+  z-index: 0;
+  min-width: var(--size);
+  min-height: var(--size);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, .5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__step{
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+}
+
+.card__progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.card__progress circle {
+  /* --procent берется с html */
+  --array: calc(2 * 3.14 * 50%);
+  --dash: calc(var(--array) * (1 - var(--procent)));
+
+  fill: none;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 3px;
+  stroke-dasharray: var(--array);
+  stroke-dashoffset: var(--dash);
+  stroke-linecap: round;
+}
+
+.card__description {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card__overtitle {
+  align-self: flex-start;
+  padding: 0 13px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  border-radius: 40px;
+  background-color: #2364db;
+}
+
+.card__title {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 133%;
+}
+
+.card__subtitle {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+}
+
+.card__link {
+  /* place */
+  margin-left: auto;
+  border-radius: 6px;
+  padding: 10px 25px;
+  background-color: #f4f8ff;
+  /* font */
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 143%;
+  text-decoration: none;
+  color: #4777ed;
+  /* animate */
+  transition: all .3s ease;
+}
+
+@media (hover :hover) {
+  .card__link:hover {
+    background-color: #2364db;
+    color: #FFF;
+  }
+}
+
+@media (hover :none) {
+  .card__link:active {
+    background-color: #2364db;
+    color: #FFF;
+  }
+}
+
+@media (width <= 712px) {
+  .card__link {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
